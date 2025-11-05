@@ -15,6 +15,10 @@
   <button id="recordBtn">⏺️ Démarrer l'enregistrement</button>
   <button id="stopBtn" disabled>⏹️ Stop</button>
 
+  <h3>📁 Ou importer un fichier audio</h3>
+  <input type="file" id="audioFile" accept="audio/*">
+  <button id="uploadBtn">📤 Transcrire le fichier</button>
+
   <h3>📝 Résultat :</h3>
   <div id="result">Aucune transcription pour l'instant...</div>
 
@@ -24,36 +28,21 @@
 
     const recordBtn = document.getElementById('recordBtn');
     const stopBtn = document.getElementById('stopBtn');
+    const uploadBtn = document.getElementById('uploadBtn');
+    const audioFileInput = document.getElementById('audioFile');
     const resultDiv = document.getElementById('result');
 
+    // 🎤 Enregistrement micro
     recordBtn.addEventListener('click', async () => {
-      // Demande l'autorisation micro
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
       mediaRecorder = new MediaRecorder(stream);
 
       audioChunks = [];
-      mediaRecorder.ondataavailable = event => {
-        audioChunks.push(event.data);
-      };
+      mediaRecorder.ondataavailable = event => audioChunks.push(event.data);
 
       mediaRecorder.onstop = async () => {
         const audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
-        const formData = new FormData();
-        formData.append('file', audioBlob, 'recording.webm');
-
-        resultDiv.textContent = '⏳ Transcription en cours...';
-
-        try {
-          const response = await fetch('https://bffc9b7e6871.ngrok-free.app/transcribe', {
-            method: 'POST',
-            body: formData
-          });
-          const data = await response.json();
-          resultDiv.textContent = data.text || '(Aucune transcription)';
-        } catch (err) {
-          console.error(err);
-          resultDiv.textContent = '❌ Erreur lors de la transcription';
-        }
+        await sendToTranscription(audioBlob, "recording.webm");
       };
 
       mediaRecorder.start();
@@ -67,6 +56,37 @@
       recordBtn.disabled = false;
       stopBtn.disabled = true;
     });
+
+    // 📥 Import fichier audio
+    uploadBtn.addEventListener('click', async () => {
+      const file = audioFileInput.files[0];
+      if (!file) {
+        alert("Veuillez sélectionner un fichier audio.");
+        return;
+      }
+      await sendToTranscription(file, file.name);
+    });
+
+    // 🔄 Fonction générique d'envoi au backend
+    async function sendToTranscription(blobOrFile, filename) {
+      const formData = new FormData();
+      formData.append('file', blobOrFile, filename);
+
+      resultDiv.textContent = "⏳ Transcription en cours...";
+
+      try {
+        const response = await fetch('https://bffc9b7e6871.ngrok-free.app/transcribe', {
+          method: 'POST',
+          body: formData
+        });
+
+        const data = await response.json();
+        resultDiv.textContent = data.text || "(Aucune transcription)";
+      } catch (err) {
+        console.error(err);
+        resultDiv.textContent = "❌ Erreur lors de la transcription";
+      }
+    }
   </script>
 </body>
 </html>
