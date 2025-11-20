@@ -4998,3 +4998,138 @@ Esoméprazole 300 mg comprimé
 prostate calcification
 prostatique Test de tolérance au glucose
 Carvédilol 500 mg
+aorte
+valve aortique
+valve tricuspide
+péricarde
+plevre
+plèvre
+poumon
+alvéole pulmonaire
+trachée
+bronche
+bronchioles
+ventricule gauche
+ventricule droit
+oreillette gauche
+oreillette droite
+valve mitrale
+aorte thoracique
+aorte abdominale
+artère fémorale
+artère carotide
+artère coronaire
+lésion
+ischémie
+hémorragie
+œdème
+hématome
+nécrose
+sténose
+calcification
+fibrose
+infection
+inflammation
+abcès
+sclérose
+ostéosynthèse
+perfusion
+intubation
+ventilation mécanique
+monitoring
+échographie
+scanner
+IRM
+radiographie
+ponction
+biopsie
+drainage
+évacuation d’hématome
+réanimation
+chirurgie
+intervention
+analyse sanguine
+bilan sanguin
+hémogramme
+numération formule sanguine
+plaquettes
+hémoglobine
+Hémoglobine glyquée
+HbA1c
+D-dimères
+CRP
+protéine C réactive
+urée
+créatinine
+ionogramme
+sodium
+potassium
+calcémie
+glycémie
+triglycérides
+cholestérol total
+cholestérol HDL
+cholestérol LDL
+transaminases
+ASAT
+ALAT
+lipase
+amylase
+PCR
+sérologie
+culture bactérienne
+antibiogramme
+groupe sanguin
+rhésus
+gaz du sang
+pH sanguin
+lactates
+hormones
+testostérone
+TSH
+FSH
+LH
+vitamine D
+vitamine B12
+solution injectable
+gélule
+comprimé
+comprimé sublingual
+poudre
+suspension buvable
+collyre
+suppositoire
+inhalateur
+aérosol
+patch transdermique
+ampoule
+seringue préremplie
+voie orale
+voie intraveineuse
+voie intramusculaire
+voie sous-cutanée
+voie rectale
+voie inhalée
+posologie
+dose
+mg
+g
+mL
+unité internationale
+IU
+anti-inflammatoire
+antalgique
+antibiotique
+antifongique
+anticoagulant
+antiagrégant
+antihypertenseur
+antidiabétique
+corticostéroïde
+bêta bloquant
+inhibiteur calcique
+inhibiteur de l’enzyme de conversion
+IEC
+ARA2
+statine
+bronchodilatateur
